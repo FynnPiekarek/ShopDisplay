@@ -1,0 +1,97 @@
+﻿@page "/basket"
+@inject DataService DataService
+@using System.Net.Mail
+@using System.Net
+
+@code {
+    private List<Item> BasketItems => DataService.Basket;
+    private double TotalPrice => BasketItems.Sum(item => item.Price);
+    private string recipientEmail;
+    private string message;
+
+    private async Task SendEmail()
+    {
+        try
+        {
+            var smtpClient = new SmtpClient("mail.gmx.net")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential("bbzw_authenticator@gmx.ch", "bbzw_authenticator123"),
+                    EnableSsl = true,
+                };
+
+            Random random = new Random();
+            int randomNumber = random.Next(1000, 10000);
+
+            string emailBody = $"<h2>Your Order No. {randomNumber}</h2><ul>";
+            foreach (var item in BasketItems)
+            {
+                emailBody += $"<li>{item.Name} - {item.Price:C}</li>";
+            }
+            emailBody += $"</ul><h3>Total Price: {TotalPrice:C}</h3>";
+
+            var mailMessage = new MailMessage
+                {
+                    From = new MailAddress("bbzw_authenticator@gmx.ch"),
+                    Subject = $"Your Order No. {randomNumber}",
+                    Body = emailBody,
+                    IsBodyHtml = true,
+                };
+
+            mailMessage.To.Add(recipientEmail);
+
+            await smtpClient.SendMailAsync(mailMessage);
+            message = "Email sent successfully!";
+        }
+        catch (Exception ex)
+        {
+            message = $"Error sending email: {ex.Message}";
+        }
+    }
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">My Basket</h1>
+    @if (BasketItems.Count > 0)
+    {
+        @foreach (var item in BasketItems)
+        {
+            <div class="card mb-3 shadow-sm">
+                <div class="row g-0 align-items-center">
+                    <div class="col-md-2">
+                        <img src="@item.PictureLink" alt="Item Image" class="img-fluid rounded-start" style="max-height: 100px; width: auto;" />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-end">
+                        <div class="card-body">
+                            <h6 class="text-danger">@($"{item.Price:C}")</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="text-end mt-4">
+            <h4>Total: <span class="text-danger">@($"{TotalPrice:C}")</span></h4>
+        </div>
+        <div class="input-group mt-3 mb-3">
+            <input type="email" class="form-control" @bind="recipientEmail" placeholder="Recipient Email Address" />
+            <button class="btn btn-primary" @onclick="SendEmail">Send Email</button>
+        </div>
+        @if (message != null)
+        {
+            <div class="alert alert-info" role="alert">
+                @message
+            </div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            Your basket is empty.
+        </div>
+    }
+</div>
