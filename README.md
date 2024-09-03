@@ -8,19 +8,19 @@ Dieses Projekt ist eine kleine und einfache Shop-Anwendung, die ich mit Blazor e
 
 - **Shop Main Page**
   
-  ![Shop Main Page](./ShopDisplay/Shop.png)
+  ![Shop Main Page](https://github.com/FynnPiekarek/ShopDisplay/blob/main/Shop.png)
 
 - **Artikelverwaltung**: Benutzer können Artikel mit Beschreibungen, Preisen und Bildern zum Verkauf hochladen.
 
-  ![Add Item](./ShopDisplay/AddItem.png)
+  ![Add Item](https://github.com/FynnPiekarek/ShopDisplay/blob/main/AddItem.png)
 
 - **Artikeldetails**: Benutzer können detaillierte Informationen zu jedem Artikel anzeigen.
 
-  ![Item Details](./ShopDisplay/blob/main/Details.png)
+  ![Item Details](https://github.com/FynnPiekarek/ShopDisplay/blob/main/Details.png)
 
 - **Warenkorb**: Artikel können einem Warenkorb hinzugefügt werden, den die Benutzer durch Hinzufügen oder Entfernen von Artikeln verwalten können.
 
-  ![Shopping Cart](./blob/main/Basket.png)
+  ![Shopping Cart](https://github.com/FynnPiekarek/ShopDisplay/blob/main/Basket.png)
 
 - **Bestellung per E-Mail**: Der gesamte Warenkorb kann an die E-Mail-Adresse des Benutzers zur Bestellabwicklung gesendet werden.
 
