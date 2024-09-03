@@ -16,15 +16,15 @@ Dieses Projekt ist eine kleine und einfache Shop-Anwendung, die ich mit Blazor e
 
 - **Artikeldetails**: Benutzer können detaillierte Informationen zu jedem Artikel anzeigen.
 
-  ![Item Details](./ShopDisplay/Details.png)
+  ![Item Details](./ShopDisplay/blob/main/Details.png)
 
 - **Warenkorb**: Artikel können einem Warenkorb hinzugefügt werden, den die Benutzer durch Hinzufügen oder Entfernen von Artikeln verwalten können.
 
-  ![Shopping Cart](./ShopDisplay/Basket.png)
+  ![Shopping Cart](./blob/main/Basket.png)
 
 - **Bestellung per E-Mail**: Der gesamte Warenkorb kann an die E-Mail-Adresse des Benutzers zur Bestellabwicklung gesendet werden.
 
-  ![Order Email](./ShopDisplay/OrderEmail.png)
+  ![Order Email](https://github.com/FynnPiekarek/ShopDisplay/blob/main/OrderEmail.png)
 
 ## Verwendete Technologien
 
