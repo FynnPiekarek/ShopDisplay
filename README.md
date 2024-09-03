@@ -2,7 +2,7 @@
 
 ## Überblick
 
-Dieses Projekt ist eine kleine und einfache Shop-Anwendung, die ich mit Blazor entwickelte und eine Verbindung zu einer MySQL-Datenbank hat. Die Anwendung ermöglicht es den Benutzern:
+Dieses Projekt ist eine kleine und einfache Shop-Anwendung, die ich mit Blazor entwickelte und eine Verbindung zu einer Sqlite-Datenbank hat. Die Anwendung ermöglicht es den Benutzern:
 
 ## Features
 
